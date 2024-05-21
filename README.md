@@ -9,7 +9,7 @@
 
 | Name               | base endpoint                                          |
 | ------------------ | ------------------------------------------------------ |
-| rest-api           | `https://api.mexo.io`                                  |
+| rest-api           | `https://api-spot.trubit.com`                                  |
 | web-socket-streams | `wss://ws.trubit.com`                                  |
 | user-data-stream   | `wss://ws.trubit.com`                                  |
 
@@ -17,9 +17,9 @@
 
 | Name             | base endpoint                                 |
 | ---------------- | --------------------------------------------- |
-| market-api       | `https://api-future.trubit.com/market/api/v1` |
-| trade-api        | `https://api-future.trubit.com/trade/api/v1`  |
-| market-websocket | `wss://api-future.trubit.com/ws/market`       |
-| trade-websocket  | `wss://api-future.trubit.com/ws/trade`        |
+| market-api       | `https://api-futures.trubit.com/market/api/v1` |
+| trade-api        | `https://api-futures.trubit.com/trade/api/v1`  |
+| market-websocket | `wss://api-futures.trubit.com/ws/market`       |
+| trade-websocket  | `wss://api-futures.trubit.com/ws/trade`        |
 
 **If you have any question, please contact our customer service. We will answer you as soon as we can. Thanks.**
