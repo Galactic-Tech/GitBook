@@ -3,10 +3,10 @@
 ## The base url
 |Name | base endpoint|
 |------------ | ------------|
-|market-api | `https://api-future.trubit.com/market/api/v1`|
-|trade-api | `https://api-future.trubit.com/trade/api/v1`|
-|market-websocket | `wss://api-future.trubit.com/ws/market`|
-|trade-websocket | `wss://api-future.trubit.com/ws/trade`|
+|market-api | `https://api-futures.trubit.com/market/api/v1`|
+|trade-api | `https://api-futures.trubit.com/trade/api/v1`|
+|market-websocket | `wss://api-futures.trubit.com/ws/market`|
+|trade-websocket | `wss://api-futures.trubit.com/ws/trade`|
 
 ## Time zone
 The time zone for all times is UTC+0
