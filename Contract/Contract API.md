@@ -795,11 +795,11 @@ POST /trade/enterOrder
 |------------ | ------------ | ------------ | ------------ | ------------|
 |`symbol`|string|`YES`|`--`|The contract symbol, eg: BTCUSDT|
 |`side`|string|`YES`|`--`|Direction of the order. Direction type: `Buy`, `Sell`|
-|`orderType`|string|`YES`|`--`|The order type, includes: `LIMIT`, `Market`|
+|`orderType`|string|`YES`|`--`|The order type, includes: `Limit`, `Market`|
 |`currency `|string|`YES`|`--`|Currency of account, eg: BTC, ETH, USDT|
 |`qty`|double|`YES`|`0`|The number of contracts to buy, Positive integer, 1Qty=1USDT|
 |`openPosition `|boolean|`YES`|`true`|Open position or Close position order, eg: true or false|
-|`price`|double|`NO`. **REQUIRED** for (`LIMIT`) orders|`--`|Order price|
+|`price`|double|`NO`. **REQUIRED** for (`Limit`) orders|`--`|Order price|
 |`triggerPrice`|double|`NO`|`--`|Trigger price for conditional order|
 |`trailingStop`|double|`NO`|`--`|Trailing stop value for advanced order, conflict with stopLossPrice|
 |`stopLossPrice`|double|`NO`|`--`|Stop loss price for advanced order, conflict with trailingStop|
@@ -809,7 +809,7 @@ POST /trade/enterOrder
 |`stopWinType`|string|`NO`|`--`|Stop win type of price for advanced order, eg: Limit or Market, it's required if stopWinPrice is set Available values : Limit, Market|
 |`clientOrderId`|string|`NO`|`--`|An unique ID for the order (user defined), Must satisfy regular: ^[\\.A-Z\\:/a-z0-9_-]{1,36}$"|
 
-**NOTE** For **Market Orders**, you need to set `orderType` as **`MARKET`**.
+**NOTE** For **Market Orders**, you need to set `orderType` as **`Market`**.
 
 You can get contract price and quantity precision configuration data in the `exchange` endpoint.
 
