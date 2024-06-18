@@ -1982,6 +1982,7 @@ None
 |Code|Description|
 |------------ | ------------ |
 |`0`| OK|
+|`20003`| Need to login before attempt any action|
 |`20004`| System is offline|
 |`20013`| Transaction sent too fast|
 |`20014`| Account id doesn't exist|
