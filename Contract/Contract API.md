@@ -799,6 +799,7 @@ POST /trade/enterOrder
 |`currency `|string|`YES`|`--`|Currency of account, eg: BTC, ETH, USDT|
 |`qty`|double|`YES`|`0`|The number of contracts to buy, Positive integer, 1Qty=1USDT|
 |`openPosition `|boolean|`YES`|`true`|Open position or Close position order, eg: true or false|
+|`positionId`|string|`NO`|`--`|The position ID,In the split-warehouse mode, closing a position requires, eg: 1323056886107491328-CCF-USDT-XRPUSDT-Long|
 |`price`|double|`NO`. **REQUIRED** for (`Limit`) orders|`--`|Order price|
 |`triggerPrice`|double|`NO`|`--`|Trigger price for conditional order|
 |`trailingStop`|double|`NO`|`--`|Trailing stop value for advanced order, conflict with stopLossPrice|
@@ -1147,6 +1148,7 @@ GET /trade/queryActiveOrders
 |`stopWinPrice`|double|`--`|Stop win price for advanced order|
 |`stopWinType`|string|`--`|Stop win type of price for advanced order, eg: Limit or Market, it's required if stopWinPrice is set Available values : Limit, Market|
 |`trailingStop`|double|`--`|Trailing stop value for advanced order, conflict with stopLossPrice|
+|`positionId`|string|`--`|The position ID, eg: 1323056886107491328-CCF-USDT-XRPUSDT-Long|
 
 ### **Example:**
 ```json
@@ -1272,6 +1274,8 @@ GET /trade/queryPosition
 |Name|Type|Example|Description
 |------------ | ------------ | ------------ | ------------|
 |`uid`|string|`1323056886107491328`|The User ID|
+|`id`|string|`1323056886107491328-CCF-ETH-ETHUSDT-Short`|The position ID|
+|`lvg`|double|`10.0`|The position lever|
 |`currency`|string|`USDT`|Currency of account, eg: BTC, ETH, USDT|
 |`symbol`|string|`BTCUSDT`|The contract symbol|
 |`side`|string|`--`|Direction of the position. Direction type: `Long`, `Short`|
@@ -1567,6 +1571,7 @@ POST /trade/riskSetting
 |`symbol`|string|`YES`|`--`|The contract symbol, eg: BTCUSDT|
 |`currency`|string|`YES`|`--`|Currency of account, eg: BTC, ETH, USDT|
 |`side`|string|`YES`|`--`|Position side, eg: Long or Short|
+|`positionId`|string|`YES`|`--`|The position ID, eg: 1323056886107491328-CCF-USDT-XRPUSDT-Long|
 |`addDeposit`|double|`NO`|`--`|Increase or decrease extra deposit for individual position|
 |`stopLossPrice`|double|`NO`|`--`|Stop loss price for advanced order, conflict with trailingStop|
 |`stopWinPrice`|double|`NO`|`--`|Stop win price for advanced order|
@@ -1681,6 +1686,7 @@ None
 |`currency`|string|`USDT`|currency|
 |`twoWayPosition`|boolean|`true`|Two way position|
 |`individualPosition`|boolean|`false`| Individual position|
+|`multiPosition`|boolean|`false`| false means closed positions, true means split positions|
 
 ### **Example:**
 
