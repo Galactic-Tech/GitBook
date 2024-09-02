@@ -775,8 +775,8 @@ Trade Endpoints Check signature. Check parameters are passed in header
 |Name|Type|Required|Default|Description|
 |------------ | ------------ | ------------ | ------------ | ------------|
 |`apiKey`|string|`YES`|`--`| Apply at the individual center, apikey/apiSecret|
-|`signature`|string|`YES`|`--`| signature=sha256(secret+method+path+expires)Note: The + needs to be removed to generate a signature|
-|`expires`|long|`YES`|`--`| Custom UTC millisecond timestamp, if the request service time is greater than expires, a timeout will be returned|
+|`expires`|long|`YES`|`--`| Expiration milliseconds, usually set to the current time plus 10 seconds|
+|`signature`|string|`YES`|`--`| signature=sha256(apiSecret+method+path+expires)Note: The + needs to be removed to generate a signature|
 ## `Order`<a name="order"></a>
 
 Place order for a contract. This API endpoint requires your signed request.
@@ -1738,8 +1738,8 @@ None
 |`op`|string|`YES`|`login`| Operation event login|
 |`txId`|string|`YES`|`--`| txId is a unique string, format: TXyyyyMMdd-HHmmss-ms-serial number, TX year-month-day-hour-minute-second-millisecond-unique serial number, for example TX20220809-142413-671-1|
 |`apiKey`|string|`YES`|`--`| Apply at the individual center, apikey/apiSecret|
-|`signature`|string|`YES`|`--`| signature=sha256(secret+op+expires)Note: The + needs to be removed to generate a signature|
-|`expires`|long|`YES`|`--`| Custom UTC millisecond timestamp, if the request service time is greater than expires, a timeout will be returned|
+|`expires`|long|`YES`|`--`| Expiration milliseconds, usually set to the current time plus 10 seconds|
+|`signature`|string|`YES`|`--`| signature=sha256(apiSecret+method+path+expires)Note: The + needs to be removed to generate a signature|
 
 ### **Example:**
 ```json
@@ -1774,8 +1774,8 @@ None
 |`op`|string|`YES`|`--`|subscribe/unsubscribe|
 |`channel`|string|`YES`|`channel`| Event name|
 |`apiKey`|string|`YES`|`--`| Apply at the individual center, apikey/apiSecret|
-|`signature`|string|`YES`|`--`| signature=sha256(secret+channel+expires)Note: The + needs to be removed to generate a signature|
-|`expires`|long|`YES`|`--`| Custom UTC millisecond timestamp, if the request service time is greater than expires, a timeout will be returned|
+|`expires`|long|`YES`|`--`| Expiration milliseconds, usually set to the current time plus 10 seconds|
+|`signature`|string|`YES`|`--`| signature=sha256(apiSecret+method+path+expires)Note: The + needs to be removed to generate a signature|
 
 ### **Example:**
 ```json
@@ -1823,8 +1823,8 @@ None
 |`op`|string|`YES`|`--`|subscribe/unsubscribe|
 |`channel`|string|`YES`|`positionUpdate`| Event name|
 |`apiKey`|string|`YES`|`--`| Apply at the individual center, apikey/apiSecret|
-|`signature`|string|`YES`|`--`| signature=sha256(secret+channel+expires)Note: The + needs to be removed to generate a signature|
-|`expires`|long|`YES`|`--`| Custom UTC millisecond timestamp, if the request service time is greater than expires, a timeout will be returned|
+|`expires`|long|`YES`|`--`| Expiration milliseconds, usually set to the current time plus 10 seconds|
+|`signature`|string|`YES`|`--`| signature=sha256(apiSecret+method+path+expires)Note: The + needs to be removed to generate a signature|
 
 ### **Example:**
 ```json
@@ -1901,8 +1901,8 @@ None
 |`op`|string|`YES`|`--`|subscribe/unsubscribe|
 |`channel`|string|`YES`|`orderUpdate`| Event name|
 |`apiKey`|string|`YES`|`--`| Apply at the individual center, apikey/apiSecret|
-|`signature`|string|`YES`|`--`| signature=sha256(secret+channel+expires)Note: The + needs to be removed to generate a signature|
-|`expires`|long|`YES`|`--`| Custom UTC millisecond timestamp, if the request service time is greater than expires, a timeout will be returned|
+|`expires`|long|`YES`|`--`| Expiration milliseconds, usually set to the current time plus 10 seconds|
+|`signature`|string|`YES`|`--`| signature=sha256(apiSecret+method+path+expires)Note: The + needs to be removed to generate a signature|
 
 ### **Example:**
 ```json
