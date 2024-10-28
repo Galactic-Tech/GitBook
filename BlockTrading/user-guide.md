@@ -5,7 +5,10 @@ The TruBit Business account manager opens a digital assets account for the API c
 ![guide-1](../_images/block-trading/blocktrading-user-guide-1.png)
 
 - Register TruBit UID: https://www.trubit.com/new/signup
-- How to get an API key and configure the White List: https://www.trubit.com/new/user/interface
+- How to get an API key and configure the White List: 
+  https://www.trubit.com/new/user/interface
+
+****
 
 ### On-ramp Process (Pay-in)
 ![guide-2](../_images/block-trading/blocktrading-user-guide-2.png)
@@ -128,6 +131,8 @@ The customer makes a payment using the information in the paymentFieldList.
 
 After the payment, the customer needs to periodically call Get Order Details to query the status of the order.
 
+***
+
 ### Off Ramp Process (Pay-out)
 ![guide-3](../_images/block-trading/blocktrading-user-guide-3.png)
 
@@ -203,6 +208,8 @@ After placing the order, use Get Order Details to query the order information an
 When the order status shows 50 (Paid), it indicates the system has completed the off ramp.
 - Once the merchant receives the payment, they can call the Finish Order API to complete the transaction.
 - New Requirement: If the order is not confirmed within 30 minutes, the system will automatically complete it. If there are any issues, contact the OTC account manager immediately.
+
+***
 
 #### Other Features
 
