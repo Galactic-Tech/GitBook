@@ -13,37 +13,37 @@ The TruBit Business account manager opens a digital assets account for the API c
 #### 1. Getting Ready for Your On Ramp
 Here’s what you need to get started: Country, Merchant ID, Token type, Fiat type, Fiat amount, Order type, and Payment ID.
 
-**1. Country**
+**1.1 Country**
 - Call the Get Country List with Symbol Rate API to find your country.
   
-**2. Merchant ID**
+**1.2 Merchant ID**
 - Call Get Merchant List to retrieve the Merchant ID linked to your UID and note it down for your on ramp.
 
-**3. Token and Fiat Types**
+**1.3 Token and Fiat Types**
 - Call Get Self Data List to discover the supported trading pairs and fiat currencies.
   - Note: This might also be referred to as Get Trading Pair List.
 
-**4. Fiat Amount**
+**1.4 Fiat Amount**
 - Use orderAmount to specify how much fiat you want to buy, accurate to two decimal places.
 - Note: If it exceeds two decimal places, the system will round down.
   
-**5. Order Type**
+**1.5 Order Type**
 - For on ramps, always set OrderType to BUY.
 
-**6. Payment Method**
+**1.6 Payment Method**
 - Use Get Self Data List to find the supported payment methods for each trading pair and record the corresponding Payment ID.
 - Check the payment method supported by your order at this step.
 
 #### 2. Create On Ramp Order
 
-**1. Call the ```Get User Quote``` API to get a quote**
+**2.1 Call the ```Get User Quote``` API to get a quote**
 
 Send the following fields:
   - Country
   - Token
   - Fiat
 
-**2. Call the```ADD Order``` API to place a buy order** 
+**2.2 Call the```ADD Order``` API to place a buy order** 
 
 Fields to be sent:
   - "country": from Get Country List with Symbol Rate
@@ -53,7 +53,7 @@ Fields to be sent:
   - "orderAmount": enter the fiat amount
   - "orderType": fixed as "BUY"
   - "paymentId": from the autoApiFiatPaymentList field in Get Self Data List
-**3. Retrieve an Order ID**
+**2.3 Retrieve an Order ID**
 After placing the order, use Get Order Details to query the order information and status. The returned information will be:
 
 ```
@@ -120,11 +120,11 @@ After placing the order, use Get Order Details to query the order information an
 }
 
 ```
-**4. Customer Payment**
+**2.4 Customer Payment**
 
 The customer makes a payment using the information in the paymentFieldList.
 
-**5. Poll for Order Status**
+**2.5 Poll for Order Status**
 
 After the payment, the customer needs to periodically call Get Order Details to query the status of the order.
 
