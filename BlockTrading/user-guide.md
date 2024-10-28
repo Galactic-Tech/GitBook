@@ -194,11 +194,11 @@ Send the following fields:
     })
 ```
 
-**4. Retrieve an Order ID**
+**2.4 Retrieve an Order ID**
 
 After placing the order, use Get Order Details to query the order information and status.
 
-**5. Order Status**
+**2.5 Order Status**
 
 When the order status shows 50 (Paid), it indicates the system has completed the off ramp.
 - Once the merchant receives the payment, they can call the Finish Order API to complete the transaction.
