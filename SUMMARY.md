@@ -10,5 +10,6 @@
   * [Web Socket Streams (2019-08-12)](<Spot/Websocket Stream.md>)
 * [Contract](Contract/README.md)
   * [Contract API](<Contract/Contract API.md>)
+* [BlockTrading](BlockTrading/README.md)
 * [Other](Other/README.md)
   * [Welcome to TruBit-Python](Other/TruBit-Python.md)
