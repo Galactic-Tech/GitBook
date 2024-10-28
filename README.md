@@ -22,4 +22,10 @@
 | market-websocket | `wss://api-futures.trubit.com/ws/market`       |
 | trade-websocket  | `wss://api-futures.trubit.com/ws/trade`        |
 
+## Block Trading API Endpoints for TruBit Pro
+
+| Name             | base endpoint                                 |
+| ---------------- | --------------------------------------------- |
+| rest-api       | `https://api-otc.trubit.com` |
+
 **If you have any question, please contact our customer service. We will answer you as soon as we can. Thanks.**
