@@ -36,7 +36,7 @@ Here’s what you need to get started: Country, Merchant ID, Token type, Fiat ty
 
 #### 2. Create On Ramp Order
 
-***1. Call the ```Get User Quote``` API to get a quote**
+**1. Call the ```Get User Quote``` API to get a quote**
 
 Send the following fields:
   - Country
