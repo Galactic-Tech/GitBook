@@ -142,35 +142,35 @@ Example
         {
             "country": "Mexico",
             "abbr": "MX",
-            "flagUrl": "https://d1ezf9tghjkrb1.cloudfront.net/country/Mexico1589435705938.png",
+            "flagUrl": "https://xxx.png",
             "buySwitch": 1,
             "sellSwitch": 1
         },
         {
             "country": "Argentina",
             "abbr": "AR",
-            "flagUrl": "https://d1ezf9tghjkrb1.cloudfront.net/country/Argentina1589435630429.png",
+            "flagUrl": "https://xxx.png",
             "buySwitch": 1,
             "sellSwitch": 1
         },
         {
             "country": "Brazil",
             "abbr": "BR",
-            "flagUrl": "https://d1ezf9tghjkrb1.cloudfront.net/country/Brazil1589435644192.png",
+            "flagUrl": "https://xxxx.png",
             "buySwitch": 1,
             "sellSwitch": 1
         },
         {
             "country": "Colombia",
             "abbr": "CO",
-            "flagUrl": "https://d1ezf9tghjkrb1.cloudfront.net/country/Colombia1589435654127.png",
+            "flagUrl": "https://xxxx.png",
             "buySwitch": 0,
             "sellSwitch": 0
         },
         {
             "country": "Hong Kong",
             "abbr": "HK",
-            "flagUrl": "https://d1ezf9tghjkrb1.cloudfront.net/country/Hong_Kong1589435682466.png",
+            "flagUrl": "https://xxxx.png",
             "buySwitch": 0,
             "sellSwitch": 1
         }
@@ -455,7 +455,7 @@ Example Mexico
         "userId": "1434127291173059584",  (number: id of the user)
         "accountId": "1434127291173059585",  (number: id of the user account)
         "cryptoCurrency": "USDT", (string: name of the crypto currency)
-        "cryptoLogo": "https://d1ezf9tghjkrb1.cloudfront.net/country/Argentina1589435630429.png",  (string: logo of the crypto currency)
+        "cryptoLogo": "https://xxx.png",  (string: logo of the crypto currency)
         "fiatCurrency": "MXN",  (string: name of the fiat currency)
         "orderPrice": "700.00",  (decimal: order price)
         "quantity": "10.00",  (decimal: order quantity)
@@ -558,7 +558,7 @@ Buy Order Example
     "userId": "1489875904414977024",
     "accountId": "1489875904414977025",
     "cryptoCurrency": "USDT",
-    "cryptoLogo": "https://static.mexo.vip/token_v2/USDT.png",
+    "cryptoLogo": "https://xxxx.png",
     "fiatCurrency": "MXN",
     "orderPrice": "20.07",
     "quantity": "0.4982",
@@ -577,7 +577,7 @@ Buy Order Example
     "deptPaymentInfo": {
         "id": 0,
         "name": "Automated SPEI - Arcus",
-        "logo": "https://static.mexo.vip/bhop/image/3_54uOUcE5FTVsk5ls3b0H3JiWom1Wnqt8DtQQ3Mqi8.png",
+        "logo": "https://xxxx.png",
         "color": "",
         "realName": "HONGYI TANG API",
         "paymentFieldList": [
@@ -623,7 +623,7 @@ Sell Order Example
     "userId": "1489875904414977024",
     "accountId": "1489875904414977025",
     "cryptoCurrency": "USDT",
-    "cryptoLogo": "https://static.mexo.vip/token_v2/USDT.png",
+    "cryptoLogo": "https://xxx.png",
     "fiatCurrency": "MXN",
     "orderPrice": "19.91",
     "quantity": "0.2",
@@ -642,7 +642,7 @@ Sell Order Example
     "deptPaymentInfo": {
         "id": 58,
         "name": "Automated SPEI - Arcus",
-        "logo": "https://static.mexo.vip/bhop/image/3_54uOUcE5FTVsk5ls3b0H3JiWom1Wnqt8DtQQ3Mqi8.png",
+        "logo": "https://xxx.png",
         "color": "",
         "realName": "",
         "paymentFieldList": []
@@ -650,7 +650,7 @@ Sell Order Example
     "userPaymentInfo": {
         "id": 221,
         "name": "Automated SPEI - Arcus",
-        "logo": "https://static.mexo.vip/bhop/image/3_54uOUcE5FTVsk5ls3b0H3JiWom1Wnqt8DtQQ3Mqi8.png",
+        "logo": "https://xxx.png",
         "color": "",
         "realName": "test-api-add",
         "paymentFieldList": [
