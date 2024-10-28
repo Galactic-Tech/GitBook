@@ -65,7 +65,7 @@ After placing the order, use Get Order Details to query the order information an
     "userId": "1489875904414977024",
     "accountId": "1489875904414977025",
     "cryptoCurrency": "USDT",
-    "cryptoLogo": "https://static.mexo.vip/token_v2/USDT.png",
+    "cryptoLogo": "https://xxxx.png",
     "fiatCurrency": "MXN",
     "orderPrice": "20.07",
     "quantity": "0.4982",
@@ -84,7 +84,7 @@ After placing the order, use Get Order Details to query the order information an
     "deptPaymentInfo": {
         "id": 0,
         "name": "Automated SPEI - Arcus",
-        "logo": "https://static.mexo.vip/bhop/image/3_54uOUcE5FTVsk5ls3b0H3JiWom1Wnqt8DtQQ3Mqi8.png",
+        "logo": "https://xxxx.png",
         "color": "",
         "realName": "TRUBIT API",
         "paymentFieldList": [
