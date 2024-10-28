@@ -11,5 +11,7 @@
 * [Contract](Contract/README.md)
   * [Contract API](<Contract/Contract API.md>)
 * [BlockTrading](BlockTrading/README.md)
+  * [User Guide](BlockTrading/user-guide.md)
+  * [BlockTrading Api](BlockTrading/blocktrading-api.md)
 * [Other](Other/README.md)
   * [Welcome to TruBit-Python](Other/TruBit-Python.md)
