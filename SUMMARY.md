@@ -10,7 +10,7 @@
   * [Web Socket Streams (2019-08-12)](<Spot/Websocket Stream.md>)
 * [Contract](Contract/README.md)
   * [Contract API](<Contract/Contract API.md>)
-* [BlockTrading](Block Trade/README.md)
+* [Block Trade](BlockTrading/README.md)
   * [User Guide](BlockTrading/user-guide.md)
   * [Block Trade Api](BlockTrading/blocktrading-api.md)
 * [Other](Other/README.md)
