@@ -1,4 +1,4 @@
-BlockTrading API Documentation
+Block Trade API Documentation
 =====================
 
 ## General API Information
