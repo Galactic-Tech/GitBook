@@ -429,6 +429,60 @@ Example Mexico
         }
 ]
 ```
+
+#### ADD Merchant Info
+
+*   **Endpoint**: `/openapi/v1/otc/mc/add`
+*   **Method**: POST
+*   **Authorization**: Requires signature and account verification
+*   **Headers**: Requires signature
+    * `X-BH-APIKEY` (string: API key)
+*   **Request Parameters**: 
+###### Add CLABE Merchant Parameters   
+```text
+{
+    "trench": "CLABE", (string: Channel [CVU/CLABE])
+    "merchantName": "meap", (string: Merchant Name (Unique))
+    "email": "test@gmail.com",(string: Email (Unique))
+    "mcType": "COMPANY", (string: Merchant Type [PERSONAL, COMPANY])
+    "remark": "xiaoming",  (string: Remark)  
+      
+    "curp": "xiaoming",  (string: CURP(curp or rfc choose one to fill in))
+    "rfc": "xiaoming",  (string: RFC(curp or rfc choose one to fill in))
+    "cardIssueDate": "xiaoming",  (string: Card Issue Date (yyyy-MM-dd))
+    "cardExpireDate": "xiaoming",  (string: Card Expiry Date(yyyy-MM-dd))
+    "address": "xiaoming",  (string: Address)
+    "city": "xiaoming",  (string: City)
+    "state": "xiaoming",  (string: State )
+    "zipCode": "xiaoming",  (string: Zip Code)
+    "phone": "xiaoming",  (string: Phone)
+        
+    "companyName": "xiaoming",  (string: Company Name (Fill in when mcType value is COMPANY))
+    "aliasName": "xiaoming",  (string: Alias Name (Fill in when mcType value is COMPANY))
+    "companyType": "xiaoming",  (string: Company Type (Fill in when mcType value is COMPANY))
+    "incorporationDate": "xiaoming",  (string: Incorporation Date (yyyy-MM-dd) [Fill in when mcType value is COMPANY])
+    
+    "birthday": "xiaoming",  (string: Birthday (yyyy-MM-dd) [Fill in when mcType value is PERSONAL])
+    "name": "xiaoming",  (string: Name (Fill in when mcType value is PERSONAL))
+    "fatherSurname": "xiaoming",  (string: Father's Surname (Fill in when mcType value is PERSONAL))
+    "motherSurname": "xiaoming"  (string: Mother's Surname (Fill in when mcType value is PERSONAL))  
+}
+```
+###### Add CVU Merchant Parameters
+```text
+{
+    "trench": "CLABE", (string: Channel [CVU/CLABE])
+    "merchantName": "meap", (string: Merchant Name (Unique))
+    "email": "test@gmail.com",(string: Email (Unique))
+    "mcType": "PERSONAL", (string: Merchant Type [PERSONAL, COMPANY])
+    "remark": "xiaoming",  (string: Remark)  
+      
+    "cuit": "20315085801",  (string: CUIT)
+    "name": "xiaoming",  (string: Full Name (Remove Diacritics))
+}
+```
+*   **Response**: JSON containing the result of the add merchant operation.
+
 ### 5\. Order Management
 
 #### Get Order List
@@ -833,5 +887,39 @@ Example
             "locked": "0"
         }
     ]
+}
+```
+
+### 8\. Webhooks
+
+#### Order Notice Info
+
+*   **Method**: POST
+*   **Authorization**: Callback message authentication, The joint commission trubit platform obtains the public key.
+*   **Headers**: Requires signature
+    * `signature` (string: To verify that a webhook request is coming from trubit, you can use the signature header. The value of the header is a RSA-SHA256 signature of the request body, Use hexadecimal encoding.)
+*   **Request Body**: 
+```text
+{
+    "orderId": "473130522693193728", (number: id of the order)
+    "userId": "455472", (number: id of the user)
+    "mcSettingsId": "10", (number: id of the merchant)
+    "orderType": "SELL", (enum: order type [BUY: buy, SELL: sell])
+    "fiatCurrency": "MXN", (string: name of the fiat currency)
+    "orderAmount": "99", (decimal: order amount)
+    "fiatFee": "0", (decimal: fiat fee)
+    "cryptoCurrency": "USDT", (string: name of the crypto currency)
+    "quantity": "5", (decimal: order quantity)
+    "orderPrice": "19.8158", (decimal: order price)
+    "orderStatus": "60", (enum: order status [10: pending, 30: approved, 40: pending payment, 50: paid, 60: released, 70: canceled])
+    "createTime": "1735279907000", (string: timestamp of the create time(millisecond))
+    "updateTime": "1735280582000", (string: timestamp of the update time(millisecond))
+    "timestamp": "1735280582453" (string: timestamp of the update time(millisecond))
+}
+```
+*   **Response**:
+```text
+{
+    "callbackStatus": "SUCCESS", (string: callback status, If SUCCESS is returned, the message is successfully notified)
 }
 ```
