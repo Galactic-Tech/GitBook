@@ -483,6 +483,50 @@ Example Mexico
 ```
 *   **Response**: JSON containing the result of the add merchant operation.
 
+#### Get Merchant Transfer List
+
+* **Endpoint**: `/openapi/v1/otc/mc/tran/list`
+* **Method**: GET
+* **Authorization**: Requires signature and account verification
+* **Headers**: Requires signature
+    * `X-BH-APIKEY` (string: API key)
+* **Request Parameters**:
+    * `startTime` (number: optional, timestamp of the start time(millisecond))
+    * `endTime`  (number: optional, timestamp of the end time(millisecond))
+    * `mcSettingsId` (number, optional, id of the merchant)
+    * `type` (number, optional, enum: type [0: all(default), 1: deposit, 2: withdraw, 3: Online Refund, 5: Offline Refund])
+    * `status` (number, optional, enum: status [0: all(default), 1: init, 2: completed, 3: canceled])
+    * `currentPage` (number,default 1)
+    * `pageSize` (number,default 10, max 1000)
+* **Response**: JSON containing the list of orders.
+```text
+{
+    "currentPage": 1,  (number: current page number)
+    "size": 10, (number: number of results per page)
+    "total": 100, (number: total number of results)   
+    "record":[ (array: list of orders)
+        {
+            "id": "482242167403036672", (number: id of the order)
+            "userId": "1172300499489225472", (number: id of the user)
+            "orderId": "482242123023106048", (number: id of the order)
+            "bankOrderId": "M67REZ8NPD4L65RN4KVGOP", (string: name of the bank order id)
+            "country": "Argentina", (number: id of the merchant)
+            "mcSettingsId": 4, (number: id of the merchant)
+            "merchantName": "AR. Tracey Ernser", (string: name of the merchant name)
+            "fiat": "ARS", (string: name of the fiat currency)
+            "amount": "1096.74", (decimal: order amount)
+            "type": 2, (enum: order status [1: deposit, 2: withdraw, 3: Online Refund, 5: Offline Refund])
+            "status": 2, (enum: status [1: init, 2: completed, 3: canceled])
+            "accountNumber": "0000775900000000000123",
+            "bankName": "Ar Auto API", (string: name of the bank name)
+            "createTime": "1737452292000", (string: timestamp of the create time(millisecond))
+            "updateTime": "1737452344000" (string: timestamp of the update time(millisecond))
+        }
+     ]
+    }
+}
+```
+
 ### 5\. Order Management
 
 #### Get Order List
@@ -515,7 +559,7 @@ Example Mexico
         "quantity": "10.00",  (decimal: order quantity)
         "fiatAmount": "7000.00", (decimal: order amount)
         "orderType": "SELL ",L  (enum: order type [BUY: buy, SELL: sell])
-        "orderStatus": "30",  (enum: order status [10: pending, 30: approved, 40: pending payment, 50: paid, 60: released, 70: canceled, 80: rejected by self])
+        "orderStatus": "30",  (enum: order status [10: pending, 30: approved, 31: support documents pending, 40: pending payment, 50: paid, 60: released, 70: canceled, 80: rejected by self])
         "deptPaymentMethodName": "Mercadopago (Mexico)",  (string: name of the merchant payment method)
         "deptPaymentMethodColor": "#4658C1", (string: color of the merchant payment method)
         "orderApprovedTime": "1722229752000", (number: timestamp of the order approved)
@@ -549,7 +593,7 @@ Example Mexico
     "quantity": "1", (decimal: order quantity)
     "fiatAmount": "1", (decimal: order amount)
     "orderType": "BUY", (enum: order type [BUY: buy, SELL: sell])
-    "orderStatus": "10", (enum: order status [10: pending, 30: approved, 40: pending payment, 50: paid, 60: released, 70: canceled, 80: rejected by self])
+    "orderStatus": "10", (enum: order status [10: pending, 30: approved, 31: support documents pending, 40: pending payment, 50: paid, 60: released, 70: canceled, 80: rejected by self])
     "orderApprovedTime": "", (number: timestamp of the order approved)
     "orderTimeFrameMinute": "", (number: time frame of the payment (minute))
     "orderConfirmTimestamp": "", (number: timestamp of the order confirmed (second))
@@ -760,7 +804,7 @@ Sell Order Example
 }
 ```
 *   **Response**: JSON containing the result of the order finish.
-```
+```text
 {
   "result": true,
   "msg": ""
@@ -793,6 +837,23 @@ Sell Order Example
 }
 ```
 
+#### Order Invoice Upload
+
+*   **Endpoint**: `/openapi/v1/otc/pic/upload`
+*   **Method**: POST
+*   **Authorization**: Requires signature and account verification
+*   **Headers**: Requires signature
+    * `X-BH-APIKEY` (string: API key)
+*   **Request Parameters**: order status is [31: support documents pending], Use this interface to upload invoices
+    * `orderId` (number: id of the order)
+    * `files` (file: Upload multiple file, This parameter does not participate in signature. numbwr max 5. Maxinum upload file size 5MB. format support [jpg,png,jpeg,pdf])
+*   **Response**: JSON containing the result of the order invoice upload.
+```text
+{
+  "result": true,
+  "msg": "SUCCESS"
+}
+```
 
 ### 6\. Deposit Management
 
