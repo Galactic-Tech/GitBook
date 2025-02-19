@@ -393,15 +393,70 @@ Example Mexico
 ```
 
 *   **Response**: JSON containing the result of the add payment operation.
-
-```
+```text
 {
     "result": true,
-    "msg": ""
+    "msg": "",
+    "data": {
+        "id": 1  (number: id of the payment)
+    }
 }
-
 ```
 
+
+#### Get My Payment Methods
+
+*   **Endpoint**: `/openapi/v1/otc/payment/my/list`
+*   **Method**: GET
+*   **Authorization**: Requires signature and account verification
+*   **Headers**: Requires signature
+    * `X-BH-APIKEY` (string: API key)
+*   **Request Query Parameters**:
+    * `mcId` (number: id of the merchant)
+    * `country` (optional,string: name of the country)
+    * `fiat` (optional,string: name of the fiat currency)
+    * `status` (optional,enum: status of the payment method [0: all(default), 1: valid, 2: authenticating, 3: authentication failed])
+    * `currentPage` (optional,number: current page number)
+    * `pageSize` (optional,number: number of results per page)
+*   **Response**: JSON containing the list of user's payment methods.
+```text
+ {
+    "currentPage": 1,  (number: current page number)
+    "size": 10,  (number: number of results per page)
+    "total": 100,  (number: total number of results)
+    "record":[ (array: list of payment methods)
+      { 
+        "id": 1,  (number: id of the payment method)
+        "mcId": 1,  (number: id of the merchant)
+        "paymentConfigId": 1, (number: id of the base payment method)
+        "paymentType": 0,  (enum: type of the payment method [0: manual(default), 1: automatic])
+        "country": "Mexico",  (string: name of the country)       
+        "fiatCurrency": "USD", (string: name of the fiat currency)
+        "paymentMethodName": "xiaoming",  (string: name of the payment method)       
+        "realName": "xiaoming", (string: name of the real name)
+        "fieldJson": [  (array: list of custom fields)
+            {
+                "index": 0,  (number: index of the field)
+                "textType": 1, (enum: type of the text [1: number, 2: letter, 3: number+letter, 4: string, 5: image])
+                "title": "Account",  (string: title of the field)
+                "promptText": "",  (string: default text of the field)
+                "isAccount": true, (boolean: whether the field is an account)
+                "isOptional": false,  (boolean: whether the field is required [true: required(default), false: optional])
+                "maxLimit": 30,        (number: maximum length of the field)
+                "text": "1234567890",  (string: text of the field)
+                "picUrl":["http://localhost/1", "http://localhost/2"],  (array: list of image links)
+                "tempPicUrl":["http://localhost/1", "http://localhost/2"],  (array: list of temporary image links)
+                "boxSize":"" (string: size of the box)
+            }
+        ], 
+        "status": 1, (enum: status of the payment method [1: normal, 2: authenticating, 3: authentication failed])
+        "hasRefundAccount": 0,  (enum: whether the payment method is a refund account [0: no, 1: yes])
+        "remark": "",  (string: remark of the payment method)
+        "createTime":1234566  (number: creation time of the payment method)
+        }        
+     ]
+}
+```
 
 ### 4\. Merchant Management
 
@@ -412,6 +467,9 @@ Example Mexico
 *   **Authorization**: Requires signature and account verification
 *   **Headers**: Requires signature
     * `X-BH-APIKEY` (string: API key)
+*   **Request Query Parameters**:
+    * `merchantName` (optional,string: name of the merchant)
+    * `email` (optional,string: email)   
 *   **Response**: JSON containing the list of merchants.
 ```text
 [
@@ -419,9 +477,11 @@ Example Mexico
             "id": 1,  (number: id of the merchant)
             "country": "Mexico",  (string: name of the country)
             "merchantName": "TestMc",  (string: name of the merchant)
+            "email": "test@gmail.com",  (string: email)
             "paymentId": 26,  (number: id of the payment method)
             "paymentMethodName": "Paypal",  (string: name of the payment method)
             "fiat": "MXN",  (string: name of the fiat currency)
+            "balance": "100.00",  (number: balance of fiat currency)
             "buyLimit":"10000.00",  (number: buy limit of the fiat currency)
             "buyUsed":"2000.00",  (number:  buy used of the fiat currency)
             "sellLimit":"10000.00",  (number: sell limit of the fiat currency)
@@ -482,6 +542,15 @@ Example Mexico
 }
 ```
 *   **Response**: JSON containing the result of the add merchant operation.
+```text
+{
+    "result": true,
+    "msg": "",
+    "data": {
+        "id": 1  (number: id of the merchant)
+    }
+}
+```
 
 #### Get Merchant Transfer List
 
@@ -579,11 +648,13 @@ Example Mexico
 *   **Headers**: Requires signature
     * `X-BH-APIKEY` (string: API key)
 *   **Request Parameters**:
-    *   `orderId` (number: id of the order)
+    * `orderId` (number: id of the order)
+    * `clientId` (string: id of the client)
 *   **Response**: JSON containing the details of the specified order.
 ```text
 {
     "orderId": "1", (number: id of the order)
+    "clientId": "ebab8a9663704e7cbbeb",  (string: id of the client)
     "userId": "1", (number: id of the user)
     "accountId": "1", (number: id of the user account)
     "cryptoCurrency": "token", (string: name of the crypto currency)
@@ -821,6 +892,7 @@ Sell Order Example
 ```text
 {       
     "country":"Mexico", (string: name of the country)
+    "clientId":"ebab8a9663704e7cbbeb",  (optional, string: id of the client (Unique))
     "mcId":3,  (number: id of the merchant)
     "cryptoCurrency":"USDT", (string: name of the crypto currency)
     "fiatCurrency":"MXN", (string: name of the fiat currency)
@@ -963,6 +1035,7 @@ Example
 ```text
 {
     "orderId": "473130522693193728", (number: id of the order)
+    "clientId": "ebab8a9663704e7cbbeb",  (string: id of the client)
     "userId": "455472", (number: id of the user)
     "mcSettingsId": "10", (number: id of the merchant)
     "orderType": "SELL", (enum: order type [BUY: buy, SELL: sell])
