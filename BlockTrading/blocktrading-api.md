@@ -412,6 +412,9 @@ Example Mexico
 *   **Authorization**: Requires signature and account verification
 *   **Headers**: Requires signature
     * `X-BH-APIKEY` (string: API key)
+*   **Request Query Parameters**:
+    * `merchantName` (optional,string: name of the merchant)
+    * `email` (optional,string: email)   
 *   **Response**: JSON containing the list of merchants.
 ```text
 [
@@ -419,9 +422,11 @@ Example Mexico
             "id": 1,  (number: id of the merchant)
             "country": "Mexico",  (string: name of the country)
             "merchantName": "TestMc",  (string: name of the merchant)
+            "email": "test@gmail.com",  (string: email)
             "paymentId": 26,  (number: id of the payment method)
             "paymentMethodName": "Paypal",  (string: name of the payment method)
             "fiat": "MXN",  (string: name of the fiat currency)
+            "balance": "100.00",  (number: balance of fiat currency)
             "buyLimit":"10000.00",  (number: buy limit of the fiat currency)
             "buyUsed":"2000.00",  (number:  buy used of the fiat currency)
             "sellLimit":"10000.00",  (number: sell limit of the fiat currency)
@@ -579,11 +584,13 @@ Example Mexico
 *   **Headers**: Requires signature
     * `X-BH-APIKEY` (string: API key)
 *   **Request Parameters**:
-    *   `orderId` (number: id of the order)
+    * `orderId` (number: id of the order)
+    * `clientId` (string: id of the client)
 *   **Response**: JSON containing the details of the specified order.
 ```text
 {
     "orderId": "1", (number: id of the order)
+    "clientId": "ebab8a9663704e7cbbeb",  (string: id of the client)
     "userId": "1", (number: id of the user)
     "accountId": "1", (number: id of the user account)
     "cryptoCurrency": "token", (string: name of the crypto currency)
@@ -821,6 +828,7 @@ Sell Order Example
 ```text
 {       
     "country":"Mexico", (string: name of the country)
+    "clientId":"ebab8a9663704e7cbbeb",  (optional, string: id of the client (Unique))
     "mcId":3,  (number: id of the merchant)
     "cryptoCurrency":"USDT", (string: name of the crypto currency)
     "fiatCurrency":"MXN", (string: name of the fiat currency)
@@ -963,6 +971,7 @@ Example
 ```text
 {
     "orderId": "473130522693193728", (number: id of the order)
+    "clientId": "ebab8a9663704e7cbbeb",  (string: id of the client)
     "userId": "455472", (number: id of the user)
     "mcSettingsId": "10", (number: id of the merchant)
     "orderType": "SELL", (enum: order type [BUY: buy, SELL: sell])
